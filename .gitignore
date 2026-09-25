@@ -20,9 +20,6 @@ local.properties
 # External tool builders
 .externalToolBuilders/
 
-# Escape dummy_sdk bin folder
-!dispatcher.cloud/test/dummy_sdk/bin
-
 # Locally stored "Eclipse launch configurations"
 *.launch
 
@@ -88,12 +85,12 @@ buildNumber.properties
 
 # NPM
 node_modules/
+package-lock.json
 yarn.lock
 
 # Webpack
 build/
 dist/
-actions/common/
 
 # Frontend Maven Plugin
 node/
@@ -101,6 +98,3 @@ node/
 # Tests
 coverage/
 reports/
-
-# Others
-dispatcher/src/conf.d/variables/default.vars

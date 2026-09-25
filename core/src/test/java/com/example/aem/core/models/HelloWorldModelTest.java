@@ -24,7 +24,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import com.day.cq.wcm.api.Page;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import com.example.aem.core.testcontext.AppAemContext;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -35,15 +34,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @ExtendWith(AemContextExtension.class)
 class HelloWorldModelTest {
 
-    private final AemContext context = AppAemContext.newAemContext();
-
     private HelloWorldModel hello;
 
     private Page page;
     private Resource resource;
 
     @BeforeEach
-    public void setup() throws Exception {
+    public void setup(AemContext context) throws Exception {
 
         // prepare a page with a test resource
         page = context.create().page("/content/mypage");

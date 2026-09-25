@@ -1,5 +1,5 @@
 {
   "resource.resolver.mapping": [
-    "/content/jenkins-aem-project/</", "/:/"
+    "/content/jenkins-aem-project/&lt;/", "/:/"
   ]
 }

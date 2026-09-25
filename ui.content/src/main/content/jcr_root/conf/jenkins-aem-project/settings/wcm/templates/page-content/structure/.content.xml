@@ -9,7 +9,7 @@
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="jenkins-aem-project/components/container"
-            layout="responsiveGrid">
+            layout="simple">
             <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="jenkins-aem-project/components/experiencefragment"
@@ -25,8 +25,7 @@
                 <container
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="jenkins-aem-project/components/container"
-                    editable="{Boolean}true"
-                    layout="responsiveGrid"/>
+                    editable="{Boolean}true"/>
             </container>
             <experiencefragment-footer
                 jcr:primaryType="nt:unstructured"
