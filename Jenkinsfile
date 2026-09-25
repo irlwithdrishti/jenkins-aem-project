@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'deploy',
                     url: 'git@github.com:irlwithdrishti/jenkins-aem-project.git',
-                    credentialsId: 'git'
+                    credentialsId: 'github-ssh-key'
             }
         }
 
