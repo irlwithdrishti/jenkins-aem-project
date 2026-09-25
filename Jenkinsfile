@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'master',
+                git branch: 'build',
                     url: 'git@github.com:irlwithdrishti/jenkins-aem-project.git',
                     credentialsId: 'git'
             }
