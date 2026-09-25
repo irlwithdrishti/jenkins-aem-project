@@ -6,6 +6,6 @@
         cq:template="/conf/jenkins-aem-project/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
         jcr:title="us"
-        sling:resourceType="jenkins-aem-project/components/page"/>
+        sling:resourceType="foundation/components/redirect"/>
     <en/>
 </jcr:root>

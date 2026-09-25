@@ -15,35 +15,35 @@
  */
 package com.example.aem.core.listeners;
 
-import java.util.List;
-
-import org.apache.sling.api.resource.observation.ResourceChange;
-import org.apache.sling.api.resource.observation.ResourceChangeListener;
+import org.apache.sling.api.SlingConstants;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.propertytypes.ServiceDescription;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventConstants;
+import org.osgi.service.event.EventHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * A service to demonstrate how changes in the resource tree
- * can be listened for. 
+ * can be listened for. It registers an event handler service.
+ * The component is activated immediately after the bundle is
+ * started through the immediate flag.
  * Please note, that apart from EventHandler services,
  * the immediate flag should not be set on a service.
  */
-@Component(service = ResourceChangeListener.class,
-           immediate = true
-)
+@Component(service = EventHandler.class,
+           immediate = true,
+           property = {
+                   EventConstants.EVENT_TOPIC + "=org/apache/sling/api/resource/Resource/*"
+           })
 @ServiceDescription("Demo to listen on changes in the resource tree")
-public class SimpleResourceListener implements ResourceChangeListener {
+public class SimpleResourceListener implements EventHandler {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Override
-    public void onChange(List<ResourceChange> changes) {
-        changes.forEach(change -> {
-            logger.debug("Resource event: {} at: {} isExternal", change.getType(), change.getPath(), change.isExternal());
-        });
-        
+    public void handleEvent(final Event event) {
+        logger.debug("Resource event: {} at: {}", event.getTopic(), event.getProperty(SlingConstants.PROPERTY_PATH));
     }
 }
 
