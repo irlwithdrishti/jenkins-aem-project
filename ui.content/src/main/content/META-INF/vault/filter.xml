@@ -2,10 +2,6 @@
 <workspaceFilter version="1.0">
     <filter root="/conf/jenkins-aem-project" mode="merge"/>
     <filter root="/content/jenkins-aem-project" mode="merge"/>
-    <filter root="/content/dam/jenkins-aem-project" mode="merge">
-        <exclude pattern="/content/dam/jenkins-aem-project(/.*)?"/>
-        <include pattern="/content/dam/jenkins-aem-project/jcr:content(/.*)?"/>
-    </filter>
-    <filter root="/content/dam/jenkins-aem-project/asset.jpg" mode="merge"/>
+    <filter root="/content/dam/jenkins-aem-project" mode="merge"/>
     <filter root="/content/experience-fragments/jenkins-aem-project" mode="merge"/>
 </workspaceFilter>
