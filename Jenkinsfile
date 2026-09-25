@@ -48,7 +48,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aem-author-creds', usernameVariable: 'AEM_USER', passwordVariable: 'AEM_PASS')]) {
                     sh '''
-                        PKG=$(ls /opt/aem-packages | tail -1)
+                        PKG=$(ls /opt/aem-packages | grep jenkins-aem-project.all | tail -1)
                         curl -u $AEM_USER:$AEM_PASS -F file=@/opt/aem-packages/$PKG -F name=$PKG -F force=true -F install=true \
                         http://localhost:4502/crx/packmgr/service.jsp
                     '''
@@ -60,7 +60,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'aem-publish-creds', usernameVariable: 'AEM_USER', passwordVariable: 'AEM_PASS')]) {
                     sh '''
-                        PKG=$(ls /opt/aem-packages | tail -1)
+                        PKG=$(ls /opt/aem-packages | grep jenkins-aem-project.all | tail -1)
                         curl -u $AEM_USER:$AEM_PASS -F file=@/opt/aem-packages/$PKG -F name=$PKG -F force=true -F install=true \
                         http://localhost:4503/crx/packmgr/service.jsp
                     '''
